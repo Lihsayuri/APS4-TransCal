@@ -30,6 +30,8 @@ geraSaida(nome,Ft,Ut,Epsi,Fi,Ti)
 
 """
 import math
+from traceback import print_list
+
 
 
 
@@ -171,15 +173,20 @@ def calculo_L_angulos(N, Inc):
         dict_l[j+1] = [l, sen, cos, Inc[j][2], Inc[j][3]]
     
     
-    print(dict_l)
+    # print(dict_l)
 
 
     return(dict_l)
+
 
 def calcula_Ke(dict_l):
     import numpy as np
     dict_Ke = {}
     dict_K_elemento = {}
+
+    # print("Essas são as restrições :", R)
+    # print(nr)
+
     for elm in dict_l.keys():
         E = dict_l[elm][3]
         A = dict_l[elm][4]
@@ -199,10 +206,10 @@ def calcula_Ke(dict_l):
 
 dict_L = calculo_L_angulos(N, Inc)
 dict_cada_elemento = calcula_Ke(dict_L)
+print("RESTRIÇÃO: ", R)
 
 
-
-# plota(N,Inc)
+plota(N,Inc)
 
 # def montaMatrizesRigidez(nm):
 
